@@ -1,0 +1,7 @@
+const C='exposofo-24fe4304',CORE=["./", "index.html", "app.js?v=24fe4304", "manifest.webmanifest", "img/logo.png", "img/escudo.png", "img/mapa.jpg", "img/leyenda.jpg", "img/expositores.jpg", "img/auspiciadores.jpg", "img/icon-192.png", "fonts/m-500-normal.woff2", "fonts/m-600-normal.woff2", "fonts/m-700-normal.woff2", "fonts/m-800-italic.woff2", "fonts/m-800-normal.woff2", "fonts/m-900-italic.woff2"];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==location.origin)return;
+ if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).then(r=>{const cp=r.clone();caches.open(C).then(c=>c.put('./',cp));return r}).catch(()=>caches.match('./',{ignoreSearch:true})));return}
+ e.respondWith(caches.match(e.request,{ignoreSearch:u.pathname.endsWith('.js')?false:true}).then(r=>r||fetch(e.request).then(n=>{if(n.ok){const cp=n.clone();caches.open(C).then(c=>c.put(e.request,cp))}return n})))});
+self.addEventListener('notificationclick',e=>{e.notification.close();e.waitUntil(self.clients.matchAll({type:'window'}).then(l=>l.length?l[0].focus():self.clients.openWindow('./#favoritos')))});

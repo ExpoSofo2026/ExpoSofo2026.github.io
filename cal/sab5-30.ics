@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SOFO//EXPOSOFO 2026//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:sab5@exposofo2026
+DTSTAMP:20261104T000000Z
+DTSTART:20261121T180000Z
+DTEND:20261121T210000Z
+SUMMARY:Gran Show Ecuestre · EXPOSOFO 2026
+LOCATION:Cancha Principal\, Parque SOFO\, Rudecindo Ortega 04780\, Temuco
+DESCRIPTION:Apertura del Show · Demostración de coches · Escuadra árabe Haras Santa Ana · Escuadra Huella Ecuestre · Carrera de corpóreos · Demostración Barrilete · Presentación Haras Militar Pupunahue y Regimiento Húsares · Presentación cuadro negro del Ejército · Desfile de cierre
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Gran Show Ecuestre en 30 min
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

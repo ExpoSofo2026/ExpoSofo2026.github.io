@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es" data-umami=""><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cloud.umami.is https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloud.umami.is https://api-gateway.umami.dev https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EXPOSOFO 2026 · Programa y Mapa</title>
+<meta name="theme-color" content="#0d4f27"><meta name="description" content="Programa oficial, mapa del Parque y expositores de EXPOSOFO 2026 · 19 al 22 de noviembre · Parque SOFO, Temuco.">
+<meta name="referrer" content="no-referrer"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="img/icon-192.png"><link rel="apple-touch-icon" href="img/icon-192.png">
+<style>
+@font-face{font-family:Montserrat;font-weight:500;font-style:normal;font-display:swap;src:url(fonts/m-500-normal.woff2) format('woff2')}
+@font-face{font-family:Montserrat;font-weight:600;font-style:normal;font-display:swap;src:url(fonts/m-600-normal.woff2) format('woff2')}
+@font-face{font-family:Montserrat;font-weight:700;font-style:normal;font-display:swap;src:url(fonts/m-700-normal.woff2) format('woff2')}
+@font-face{font-family:Montserrat;font-weight:800;font-style:normal;font-display:swap;src:url(fonts/m-800-normal.woff2) format('woff2')}
+@font-face{font-family:Montserrat;font-weight:800;font-style:italic;font-display:swap;src:url(fonts/m-800-italic.woff2) format('woff2')}
+@font-face{font-family:Montserrat;font-weight:900;font-style:italic;font-display:swap;src:url(fonts/m-900-italic.woff2) format('woff2')}
+:root{--g:#157439;--gd:#0d4f27;--y:#F5A700;--lime:#7ED957;--ink:#1d2b22;--mut:#5d6a61;--bg:#eef3ec;--red:#d93a2b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+button{font-family:inherit;cursor:pointer}
+header.top{background:linear-gradient(115deg,var(--gd) 0%,#0f5c2e 60%,var(--g) 100%);color:#fff;padding:14px 16px 12px}
+.top .row{display:flex;align-items:center;gap:12px;max-width:760px;margin:0 auto}
+.top .lx{height:44px} .top .es{height:48px;margin-left:auto;filter:drop-shadow(0 0 4px rgba(255,255,255,.3))}
+.top .eb{font-size:9.5px;font-weight:800;letter-spacing:2.2px;color:var(--lime);text-transform:uppercase}
+.top h1{font-size:20px;font-weight:900;font-style:italic;line-height:1.1;margin-top:2px}
+.top .sb{max-width:760px;margin:8px auto 0;font-size:12px;font-weight:600;color:#e6f2e3;line-height:1.4}
+.stripe{height:4px;background:linear-gradient(90deg,var(--lime) 0 62%,var(--y) 62% 100%)}
+nav.main{position:sticky;top:0;z-index:30;background:#fff;box-shadow:0 2px 10px rgba(13,79,39,.12)}
+.mt{display:flex;max-width:760px;margin:0 auto}
+.mt a{flex:1;text-align:center;padding:12px 2px 10px;font-weight:800;font-size:13.5px;color:var(--mut);text-decoration:none;border-bottom:3px solid transparent;position:relative}
+.mt a.on{color:var(--gd);border-bottom-color:var(--g)}
+.mt .cnt{display:inline-block;min-width:18px;height:18px;line-height:18px;border-radius:9px;background:var(--y);color:#3d2a00;font-size:11px;margin-left:4px;padding:0 5px}
+.clock{background:var(--gd);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;padding:7px 10px;user-select:none}
+.clock .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(126,217,87,.7);animation:pl 1.6s infinite}
+.clock.off .dot{background:#9fb5a5;animation:none}
+.clock b{font-variant-numeric:tabular-nums;font-size:15px}
+.clock .demo{background:var(--y);color:#3d2a00;font-size:10px;padding:2px 7px;border-radius:10px;letter-spacing:.5px}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(126,217,87,.7)}70%{box-shadow:0 0 0 9px rgba(126,217,87,0)}100%{box-shadow:0 0 0 0 rgba(126,217,87,0)}}
+main{max-width:760px;margin:0 auto;padding:12px 12px 30px}
+.view{display:none} .view.on{display:block}
+.card{background:#fff;border-radius:16px;padding:14px;box-shadow:0 6px 20px rgba(13,79,39,.08);margin-bottom:12px}
+.card h3{font-size:17px;font-weight:900;font-style:italic;color:var(--g);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+/* AHORA */
+#ahora{display:none} #ahora.on{display:block}
+#ahora{border:2px solid var(--lime);background:linear-gradient(180deg,#f3fbef,#fff)}
+#ahora h3 .lv{background:var(--red);color:#fff;font-size:10px;font-style:normal;letter-spacing:1px;padding:3px 8px;border-radius:10px;animation:bl 1.4s infinite}
+@keyframes bl{50%{opacity:.55}}
+.ni{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid #e3eee0}
+.ni:first-of-type{border-top:0}
+.ni .tm{font-size:12.5px;font-weight:800;color:var(--gd);min-width:74px;font-variant-numeric:tabular-nums}
+.ni .tt{font-size:14.5px;font-weight:700;line-height:1.25}
+.ni .sub{font-size:12px;color:var(--mut);font-weight:600;margin-top:2px}
+.prog{height:5px;border-radius:3px;background:#dfeadb;margin-top:6px;overflow:hidden}.prog i{display:block;height:100%;background:var(--g)}
+.sect{font-size:11px;font-weight:800;letter-spacing:1.5px;color:#c98a00;text-transform:uppercase;margin:10px 0 2px}
+/* días */
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.dt{border:0;background:#fff;border-radius:12px;padding:8px 2px 7px;color:var(--gd);box-shadow:0 1px 0 #dfe8dc;display:flex;flex-direction:column;align-items:center;position:relative}
+.dt span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px} .dt b{font-size:21px;font-weight:900;font-style:italic}
+.dt.on{background:var(--g);color:#fff} .dt.hoy::after{content:"HOY";position:absolute;top:-7px;right:-3px;background:var(--y);color:#3d2a00;font-size:9px;font-weight:800;padding:2px 5px;border-radius:8px}
+.dia{display:none;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(13,79,39,.08)} .dia.on{display:block}
+.dh{background:var(--g);color:#fff;padding:13px 16px}
+.dia[data-k=dom] .dh{background:var(--y);color:var(--gd)} .dia[data-k=sab] .dh{background:var(--gd)}
+.dh h2{font-size:20px;font-weight:900;font-style:italic} .dh p{font-size:12.5px;font-weight:600;opacity:.9;margin-top:2px}
+ol.evs{list-style:none;padding:4px 10px 8px}
+.ev{display:grid;grid-template-columns:86px 1fr 40px;gap:8px;padding:11px 4px;border-bottom:1px solid #e8eee6;transition:opacity .3s,background .3s}
+.ev:last-child{border-bottom:0}
+.h{font-size:13px;font-weight:800;color:var(--gd);font-variant-numeric:tabular-nums;padding-top:1px;line-height:1.3}
+.a{font-size:15px;font-weight:700;line-height:1.25}
+.det{font-size:12.5px;font-weight:600;color:var(--mut);margin-top:3px}
+.ev ul,.ev ol{margin:5px 0 2px 17px;font-size:12.5px;font-weight:600;color:#3b4a40;line-height:1.4}
+.ev ol li::marker{font-weight:800;color:var(--g)}
+.ml{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;color:var(--g);margin-top:6px;background:#e9f4e5;border:0;border-radius:14px;padding:4px 10px 4px 8px}
+.lu{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:#6f7d73;margin-top:6px}
+.st{width:38px;height:38px;border-radius:50%;border:1.5px solid #d4e0d0;background:#fff;font-size:19px;line-height:1;color:#b8c6b4;align-self:start}
+.st.on{background:var(--y);border-color:var(--y);color:#fff}
+.ap .a{color:var(--mut);font-size:13.5px} .ap .st{visibility:hidden}
+.hito{background:#ecf6e8;border-radius:10px;border-bottom-color:transparent;margin:2px 0;padding-left:6px;padding-right:6px}
+.show{background:rgba(21,116,57,.08);border:1.5px solid rgba(21,116,57,.25);border-radius:12px;margin:4px 0;padding:11px 6px}
+.show .a{color:var(--gd);font-size:16.5px}
+.lista{background:#f5f8f3;border:1.2px dashed #c4d6bf;border-radius:10px;margin:3px 0;padding-left:6px;padding-right:6px}
+.lista .st{visibility:hidden}
+.chip{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.6px;border-radius:10px;padding:3px 7px;margin-top:5px;text-transform:uppercase}
+.live{background:#fff4d6!important;box-shadow:inset 5px 0 0 var(--y);border-radius:10px;border-bottom-color:transparent}
+.live .chip{background:var(--red);color:#fff;animation:bl 1.4s infinite}
+.soon .chip{background:#e3f1de;color:var(--gd)}
+.past{opacity:.42} .past .chip{background:#e6e9e6;color:#6d756f}
+.note{font-size:11.5px;color:var(--mut);margin:10px 4px 0;line-height:1.45}
+/* mapa */
+.mapw{position:relative;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(13,79,39,.08);margin-bottom:10px}
+.mapbox{overflow:auto;-webkit-overflow-scrolling:touch;max-height:68vh}
+.mapin{position:relative;width:100%;transition:width .25s}
+.mapin img{display:block;width:100%;height:auto}
+.pin{position:absolute;transform:translate(-50%,-100%);border:0;background:none;padding:0;z-index:3;display:none;flex-direction:column;align-items:center}
+.pin.hasfav,.pin.sel{display:flex}
+.pin .lb{margin-top:3px;background:#fff;color:var(--gd);font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:9px;box-shadow:0 2px 5px rgba(0,0,0,.25);white-space:nowrap}
+.pin .halo{position:absolute;left:50%;top:16px;width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:50%;background:rgba(245,167,0,.30);animation:hl 1.8s infinite;z-index:-1}
+@keyframes hl{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.5);opacity:0}}
+.pin .bd{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.35)}
+.pin .bd span{transform:rotate(45deg);color:#fff;font-weight:900;font-size:16px}
+.pin .bd{background:var(--y)!important}
+.pin.sel:not(.hasfav) .bd{background:var(--g)!important}
+.pin .fv{position:absolute;top:-8px;right:-8px;background:var(--y);color:#fff;border-radius:50%;width:17px;height:17px;font-size:11px;line-height:17px;border:1.5px solid #fff;display:none}
+
+.pin.livep .bd{animation:pp 1.3s infinite}
+@keyframes pp{0%{box-shadow:0 0 0 0 rgba(217,58,43,.75)}70%{box-shadow:0 0 0 14px rgba(217,58,43,0)}100%{box-shadow:0 0 0 0 rgba(217,58,43,0)}}
+
+.pin.sel .bd{outline:3px solid var(--y);outline-offset:2px}
+.sv{position:absolute;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:#fff;border:1.5px solid #9fb5a5;font-size:12px;display:flex;align-items:center;justify-content:center;z-index:2;padding:0;box-shadow:0 2px 5px rgba(0,0,0,.2)}
+.zoom{position:absolute;right:10px;bottom:10px;display:flex;flex-direction:column;gap:6px;z-index:5}
+.zoom button{width:42px;height:42px;border-radius:12px;border:0;background:var(--g);color:#fff;font-size:23px;font-weight:800;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+.mf{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:2px}
+.mf button{flex:none;border:1.5px solid #cfdccb;background:#fff;color:var(--gd);font-weight:700;font-size:12.5px;border-radius:18px;padding:7px 12px}
+.mf button.on{background:var(--g);border-color:var(--g);color:#fff}
+.plist button{display:flex;width:100%;align-items:center;gap:10px;border:0;background:none;padding:9px 2px;border-top:1px solid #edf2eb;text-align:left;color:var(--ink)}
+.plist button:first-child{border-top:0}
+.plist .pd{width:26px;height:26px;border-radius:50%;color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex:none}
+.plist b{font-size:14px;display:block} .plist small{font-size:11.5px;color:var(--mut);font-weight:600}
+.plist .lvb{margin-left:auto;font-size:10px;font-weight:800;color:#fff;background:var(--red);border-radius:10px;padding:3px 7px}
+.hint{font-size:11.5px;color:var(--mut);text-align:center;padding:2px 8px 10px}
+.full{width:100%;display:block;border-radius:10px}
+/* hoja inferior */
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;background:#fff;border-radius:20px 20px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.25);max-height:62vh;overflow:auto;transform:translateY(105%);transition:transform .25s;padding:6px 16px 22px}
+.sheet.on{transform:none}
+.sheet .grab{width:44px;height:5px;border-radius:3px;background:#d5ddd3;margin:6px auto 10px}
+.sheet h4{font-size:19px;font-weight:900;font-style:italic;color:var(--gd);display:flex;align-items:center;gap:8px}
+.sheet .x{margin-left:auto;border:0;background:#eef3ec;width:34px;height:34px;border-radius:50%;font-size:18px;color:var(--gd);font-style:normal}
+.sheet .si{display:grid;grid-template-columns:1fr 40px;gap:8px;padding:10px 0;border-top:1px solid #edf2eb;align-items:center}
+.sheet .si .w{font-size:11.5px;font-weight:800;color:var(--g)} .sheet .si .n{font-size:14.5px;font-weight:700;margin-top:1px}
+.sheet .si.live{padding-left:8px}
+.sheet .dd{font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#c98a00;margin-top:10px}
+/* favoritos */
+.opts{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}
+.opts button{border:1.5px solid #cfdccb;background:#fff;color:var(--gd);font-weight:800;font-size:13.5px;border-radius:20px;padding:9px 14px}
+.opts button.on{background:var(--g);border-color:var(--g);color:#fff}
+.bt{display:block;width:100%;border:0;border-radius:12px;background:var(--g);color:#fff;font-weight:800;font-size:14.5px;padding:13px;margin-top:6px}
+.bt.sec{background:#e9f4e5;color:var(--gd)}
+.ok{font-size:12.5px;font-weight:700;color:var(--g);margin-top:8px}
+.fi{padding:12px 0;border-top:1px solid #edf2eb}
+.fi:first-child{border-top:0}
+.fi .top2{display:flex;gap:10px;align-items:flex-start}
+.fi .w{font-size:12px;font-weight:800;color:var(--g)} .fi .n{font-size:15px;font-weight:700;margin-top:2px;line-height:1.25}
+.fi .cd{font-size:12px;font-weight:700;color:#c98a00;margin-top:3px}
+.fi .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.fi .acts a,.fi .acts button{font-size:12px;font-weight:700;color:var(--gd);background:#e9f4e5;border:0;border-radius:14px;padding:6px 11px;text-decoration:none}
+.empty{text-align:center;color:var(--mut);font-size:13.5px;font-weight:600;padding:18px 6px;line-height:1.5}
+.empty b{font-size:26px;display:block;color:var(--y)}
+/* toast aviso */
+#toast{position:fixed;left:10px;right:10px;top:10px;z-index:80;background:var(--gd);color:#fff;border-radius:16px;padding:14px 14px 12px;box-shadow:0 10px 30px rgba(0,0,0,.35);display:none;border:2px solid var(--y)}
+#toast.on{display:block;animation:dn .3s}
+@keyframes dn{from{transform:translateY(-120%)}}
+#toast .k{font-size:11px;font-weight:800;letter-spacing:1.4px;color:var(--y)} #toast .n{font-size:16px;font-weight:800;margin-top:3px}
+#toast .l{font-size:12.5px;opacity:.9;margin-top:2px;font-weight:600}
+#toast .tb{display:flex;gap:8px;margin-top:10px}
+#toast .tb button{flex:1;border:0;border-radius:10px;padding:9px;font-weight:800;font-size:13px}
+#toast .tb .p{background:var(--y);color:#3d2a00} #toast .tb .s{background:rgba(255,255,255,.15);color:#fff}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px}
+.info b{display:block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#c98a00;text-transform:uppercase;margin-bottom:3px}
+.info div{font-size:14px;font-weight:600;line-height:1.4}
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.ct a{background:var(--g);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:11px 8px;border-radius:10px;text-align:center}
+footer{text-align:center;font-size:11px;color:var(--mut);padding:6px 16px 28px;line-height:1.5}
+@media(min-width:600px){.top h1{font-size:26px} .ev{grid-template-columns:118px 1fr 40px}}
+</style></head><body>
+<header class="top"><div class="row"><img class="lx" src="img/logo.png" width="86" height="44" alt="EXPOSOFO 2026">
+<div><div class="eb">La gran feria del campo chileno</div><h1>Programa y mapa</h1></div>
+<img class="es" src="img/escudo.png" width="35" height="48" alt="SOFO"></div>
+<p class="sb">19 al 22 de noviembre 2026 · Parque SOFO Charles Caminondo · Temuco</p></header>
+<div class="stripe"></div>
+<nav class="main"><div class="clock off" id="clock"><span class="dot"></span><span id="clk">—</span></div>
+<div class="mt"><a href="#programa" data-v="programa">Programa</a><a href="#mapa" data-v="mapa">Mapa</a><a href="#favoritos" data-v="favoritos">★ Mis favoritos<span class="cnt" id="fc" hidden>0</span></a><a href="#info" data-v="info">Info</a></div></nav>
+<main>
+<div class="view" id="v-programa">
+ <div class="card" id="ahora"><h3>Ahora en el parque <span class="lv">EN VIVO</span></h3><div id="ahL"></div><div class="sect" id="nxT">A continuación</div><div id="nxL"></div></div>
+ <div class="days" id="days"></div><div id="dias"></div>
+ <p class="note">Toca ★ para guardar tus actividades favoritas y recibir un aviso antes de que empiecen. Programa sujeto a cambios.</p>
+</div>
+<div class="view" id="v-mapa">
+ 
+ <div class="mapw"><div class="mapbox" id="mb"><div class="mapin" id="mi"><img id="mimg" src="img/mapa.jpg" width="2600" height="2353" alt="Mapa del Parque SOFO"></div></div>
+ <div class="zoom"><button id="zi" aria-label="Acercar">+</button><button id="zo" aria-label="Alejar">−</button></div></div>
+ <p class="hint">Marca ★ tus actividades favoritas y sus lugares se destacarán en el mapa. Usa + / − para hacer zoom.</p>
+ <div class="card"><h3>¿Dónde es cada actividad?</h3><div class="plist" id="plist"></div></div>
+ <div class="card"><img class="full" src="img/leyenda.jpg" loading="lazy" alt="Sitios del mapa y simbología"></div>
+ <div class="card"><img class="full" src="img/expositores.jpg" loading="lazy" alt="Expositores por sitio"></div>
+</div>
+<div class="view" id="v-favoritos">
+ <div class="card"><h3>Avisarme antes de mis actividades</h3>
+  <div style="font-size:13px;color:var(--mut);font-weight:600;line-height:1.45">Elige cuánto antes quieres el aviso (puedes marcar varios):</div>
+  <div class="opts" id="opts"><button data-m="60">1 hora antes</button><button data-m="30">30 min antes</button><button data-m="10">10 min antes</button></div>
+  <button class="bt" id="act">Activar avisos</button><div class="ok" id="okm" hidden></div>
+  <p class="note" style="margin:10px 0 0">Los avisos aparecen mientras tengas esta página abierta. Para que tu celular te avise aunque la cierres o te quedes sin señal, agrega cada favorito a tu calendario.</p></div>
+ <div class="card"><h3>Mis favoritos</h3><div id="favL"></div></div>
+</div>
+<div class="view" id="v-info"><div class="card"><h3>Información útil</h3><div class="info">
+<div><b>Fechas</b>Jueves 19 al domingo 22 de noviembre 2026</div>
+<div><b>Horario</b>Jue 10–20 h<br>Vie 10–21 h<br>Sáb 10–22 h<br>Dom 10–21 h</div>
+<div><b>Entradas</b>Adulto $4.000<br>Adulto mayor $2.000<br>Niños $1.000<br>Vehículo $8.000</div>
+<div><b>Dirección</b>Parque SOFO<br>Rudecindo Ortega 04780<br>Temuco, La Araucanía</div></div>
+<div class="ct"><a href="https://wa.me/56998865618">WhatsApp +56 9 9886 5618</a><a href="https://www.exposofo.cl">exposofo.cl</a>
+<a href="https://www.instagram.com/sofoparque">@sofoparque</a><a href="https://www.google.com/maps/search/?api=1&query=Parque+SOFO+Rudecindo+Ortega+04780+Temuco">Cómo llegar</a></div>
+<p class="note">Teléfono (45) 240 3122 · ventas@sofo.cl · ferias@sofo.cl</p></div>
+<div class="card"><h3>Privacidad</h3><p class="note" style="margin:0">Esta página no pide registro ni datos personales. Tus favoritos y avisos se guardan solo en tu celular y nunca se envían a nadie. Medimos visitas de forma anónima y agregada, sin cookies, para mejorar la feria.</p></div>
+<div class="card"><img class="full" src="img/auspiciadores.jpg" loading="lazy" alt="Auspiciadores"></div></div>
+</main>
+<footer>Organiza SOFO · Sociedad de Fomento Agrícola de Temuco A.G. · Uniendo el campo y la ciudad desde 1918 · Edición N° 94</footer>
+<div class="sheet" id="sheet"><div class="grab"></div><div id="shC"></div></div>
+<div id="toast"><div class="k" id="tK"></div><div class="n" id="tN"></div><div class="l" id="tL"></div><div class="tb"><button class="p" id="tMap">Ver en el mapa</button><button class="s" id="tX">Cerrar</button></div></div>
+<script src="app.js?v=24fe4304" defer></script></body></html>
