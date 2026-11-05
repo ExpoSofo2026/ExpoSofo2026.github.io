@@ -29,8 +29,13 @@ header.top{background:linear-gradient(115deg,var(--gd) 0%,#0f5c2e 60%,var(--g) 1
 .stripe{height:4px;background:linear-gradient(90deg,var(--lime) 0 62%,var(--y) 62% 100%)}
 nav.main{position:sticky;top:0;z-index:30;background:#fff;box-shadow:0 2px 10px rgba(13,79,39,.12)}
 .mt{display:flex;max-width:760px;margin:0 auto}
-.mt a{flex:1;text-align:center;padding:12px 2px 10px;font-weight:800;font-size:13.5px;color:var(--mut);text-decoration:none;border-bottom:3px solid transparent;position:relative}
-.mt a.on{color:var(--gd);border-bottom-color:var(--g)}
+.mt{gap:4px;padding:6px 6px 7px}
+.mt a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;padding:6px 2px 5px;font-weight:800;font-size:13.5px;color:var(--mut);text-decoration:none;border-radius:12px;position:relative;transition:background .25s ease,color .25s ease,transform .15s ease}
+.mt a svg{width:21px;height:21px;transition:transform .25s ease}
+.mt a:active{transform:scale(.93)}
+.mt a.on{color:#fff;background:var(--g);box-shadow:0 3px 10px rgba(21,116,57,.3)}
+.mt a.on svg{transform:translateY(-1px)}
+.mt a .lbl{display:flex;align-items:center}
 .mt .cnt{display:inline-block;min-width:18px;height:18px;line-height:18px;border-radius:9px;background:var(--y);color:#3d2a00;font-size:11px;margin-left:4px;padding:0 5px}
 .clock{background:var(--gd);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;padding:7px 10px;user-select:none}
 .clock .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(126,217,87,.7);animation:pl 1.6s infinite}
@@ -39,7 +44,11 @@ nav.main{position:sticky;top:0;z-index:30;background:#fff;box-shadow:0 2px 10px 
 .clock .demo{background:var(--y);color:#3d2a00;font-size:10px;padding:2px 7px;border-radius:10px;letter-spacing:.5px}
 @keyframes pl{0%{box-shadow:0 0 0 0 rgba(126,217,87,.7)}70%{box-shadow:0 0 0 9px rgba(126,217,87,0)}100%{box-shadow:0 0 0 0 rgba(126,217,87,0)}}
 main{max-width:760px;margin:0 auto;padding:12px 12px 30px}
-.view{display:none} .view.on{display:block}
+.view{display:none} .view.on{display:block;animation:vin .32s cubic-bezier(.2,.8,.2,1)}
+@keyframes vin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+button,.dt,.ml,.opts button,.bt{transition:transform .15s ease,background .25s ease,color .25s ease,box-shadow .25s ease}
+button:active{transform:scale(.96)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 .card{background:#fff;border-radius:16px;padding:14px;box-shadow:0 6px 20px rgba(13,79,39,.08);margin-bottom:12px}
 .card h3{font-size:17px;font-weight:900;font-style:italic;color:var(--g);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 /* AHORA */
@@ -55,14 +64,22 @@ main{max-width:760px;margin:0 auto;padding:12px 12px 30px}
 .prog{height:5px;border-radius:3px;background:#dfeadb;margin-top:6px;overflow:hidden}.prog i{display:block;height:100%;background:var(--g)}
 .sect{font-size:11px;font-weight:800;letter-spacing:1.5px;color:#c98a00;text-transform:uppercase;margin:10px 0 2px}
 /* días */
-.days{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
-.dt{border:0;background:#fff;border-radius:12px;padding:8px 2px 7px;color:var(--gd);box-shadow:0 1px 0 #dfe8dc;display:flex;flex-direction:column;align-items:center;position:relative}
+#dsent{height:1px;margin-bottom:-1px}
+.days{display:flex;gap:8px;margin:0 -12px 12px;padding:6px 12px;position:sticky;top:var(--navh,96px);z-index:20;transition:background .3s ease,box-shadow .3s ease}
+.days.stuck{background:rgba(238,243,236,.97);box-shadow:0 6px 14px rgba(13,79,39,.12)}
+.dt{flex:1 1 0;min-width:0;border:0;background:#fff;border-radius:12px;padding:8px 2px 7px;color:var(--gd);box-shadow:0 1px 0 #dfe8dc;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;transition:flex-grow .35s cubic-bezier(.2,.8,.2,1),background .25s ease,color .25s ease}
+.dt .fn{display:none;font-size:16px;font-weight:900;font-style:italic;white-space:nowrap;text-transform:none;letter-spacing:0}
+.days.stuck .dt{padding:6px 2px}
+.days.stuck .dt.on{flex-grow:2.4}
+.days.stuck .dt.on span,.days.stuck .dt.on b{display:none}
+.days.stuck .dt.on .fn{display:block;animation:vin .3s ease}
 .dt span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px} .dt b{font-size:21px;font-weight:900;font-style:italic}
 .dt.on{background:var(--g);color:#fff} .dt.hoy::after{content:"HOY";position:absolute;top:-7px;right:-3px;background:var(--y);color:#3d2a00;font-size:9px;font-weight:800;padding:2px 5px;border-radius:8px}
 .dia{display:none;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(13,79,39,.08)} .dia.on{display:block}
 .dh{background:var(--g);color:#fff;padding:13px 16px}
 .dia[data-k=dom] .dh{background:var(--y);color:var(--gd)} .dia[data-k=sab] .dh{background:var(--gd)}
-.dh h2{font-size:20px;font-weight:900;font-style:italic} .dh p{font-size:12.5px;font-weight:600;opacity:.9;margin-top:2px}
+.dh h2{font-size:20px;font-weight:900;font-style:italic}
+.imp{display:inline-block;vertical-align:2px;margin-left:6px;font-size:9.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;background:var(--y);color:#3d2a00;border-radius:9px;padding:2px 7px}
 ol.evs{list-style:none;padding:4px 10px 8px}
 .ev{display:grid;grid-template-columns:86px 1fr 40px;gap:8px;padding:11px 4px;border-bottom:1px solid #e8eee6;transition:opacity .3s,background .3s}
 .ev:last-child{border-bottom:0}
@@ -89,36 +106,52 @@ ol.evs{list-style:none;padding:4px 10px 8px}
 .note{font-size:11.5px;color:var(--mut);margin:10px 4px 0;line-height:1.45}
 /* mapa */
 .mapw{position:relative;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(13,79,39,.08);margin-bottom:10px}
-.mapbox{overflow:auto;-webkit-overflow-scrolling:touch;max-height:68vh}
-.mapin{position:relative;width:100%;transition:width .25s}
+.mapbox{position:relative;overflow:hidden;touch-action:pan-y;aspect-ratio:2600/2353;background:#f4f7f2;user-select:none;-webkit-user-select:none}
+.mapbox.zoomed{touch-action:none}
+.mapin{position:absolute;left:0;top:0;width:100%;transform-origin:0 0;will-change:transform;--iz:1}
+.mapin.anim{transition:transform .38s cubic-bezier(.2,.8,.2,1)}
+.mapin img{-webkit-user-drag:none;pointer-events:none}
 .mapin img{display:block;width:100%;height:auto}
-.pin{position:absolute;transform:translate(-50%,-100%);border:0;background:none;padding:0;z-index:3;display:none;flex-direction:column;align-items:center}
-.pin.hasfav,.pin.sel{display:flex}
+.pin{position:absolute;transform:translate(-50%,-100%) scale(var(--iz));transform-origin:50% 100%;border:0;background:none;padding:0;z-index:3;display:none;flex-direction:column;align-items:center}
+.pin:active{transform:translate(-50%,-100%) scale(var(--iz))}
+.pin.vis{display:flex}
 .pin .lb{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:3px;background:#fff;color:var(--gd);font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:9px;box-shadow:0 2px 5px rgba(0,0,0,.25);white-space:nowrap}
 .pin.al .lb{left:-4px;transform:none}
 .pin .halo{position:absolute;left:50%;top:16px;width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:50%;background:rgba(245,167,0,.30);animation:hl 1.8s infinite;z-index:-1}
 @keyframes hl{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.5);opacity:0}}
 .pin .bd{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.35)}
 .pin .bd span{transform:rotate(45deg);color:#fff;font-weight:900;font-size:16px}
-.pin .bd{background:var(--y)!important}
-.pin.sel:not(.hasfav) .bd{background:var(--g)!important}
+.pin:not(.hasfav) .halo{display:none}
+.pin.hasfav .bd{background:var(--y)!important}
 .pin .fv{position:absolute;top:-8px;right:-8px;background:var(--y);color:#fff;border-radius:50%;width:17px;height:17px;font-size:11px;line-height:17px;border:1.5px solid #fff;display:none}
 
 .pin.livep .bd{animation:pp 1.3s infinite}
 @keyframes pp{0%{box-shadow:0 0 0 0 rgba(217,58,43,.75)}70%{box-shadow:0 0 0 14px rgba(217,58,43,0)}100%{box-shadow:0 0 0 0 rgba(217,58,43,0)}}
 
 .pin.sel .bd{outline:3px solid var(--y);outline-offset:2px}
-.sv{position:absolute;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:#fff;border:1.5px solid #9fb5a5;font-size:12px;display:flex;align-items:center;justify-content:center;z-index:2;padding:0;box-shadow:0 2px 5px rgba(0,0,0,.2)}
-.zoom{position:absolute;right:10px;bottom:10px;display:flex;flex-direction:column;gap:6px;z-index:5}
-.zoom button{width:42px;height:42px;border-radius:12px;border:0;background:var(--g);color:#fff;font-size:23px;font-weight:800;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+.sv{position:absolute;transform:translate(-50%,-50%) scale(var(--iz));width:28px;height:28px;border-radius:50%;background:#fff;border:1.5px solid #9fb5a5;font-size:14px;display:none;align-items:center;justify-content:center;z-index:2;padding:0;box-shadow:0 2px 5px rgba(0,0,0,.2)}
+.sv.vis{display:flex}
+.sv .lb2{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:2px;background:#fff;color:var(--ink);font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:8px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.zr{position:absolute;right:10px;bottom:10px;z-index:5;border:0;background:rgba(255,255,255,.95);color:var(--gd);font-weight:800;font-size:12px;border-radius:16px;padding:7px 11px;box-shadow:0 3px 10px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:opacity .25s ease}
+.zr.on{opacity:1;pointer-events:auto}
+.mf .dotc{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:0}
 .mf{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:2px}
 .mf button{flex:none;border:1.5px solid #cfdccb;background:#fff;color:var(--gd);font-weight:700;font-size:12.5px;border-radius:18px;padding:7px 12px}
 .mf button.on{background:var(--g);border-color:var(--g);color:#fff}
-.plist button{display:flex;width:100%;align-items:center;gap:10px;border:0;background:none;padding:9px 2px;border-top:1px solid #edf2eb;text-align:left;color:var(--ink)}
-.plist button:first-child{border-top:0}
-.plist .pd{width:26px;height:26px;border-radius:50%;color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex:none}
-.plist b{font-size:14px;display:block} .plist small{font-size:11.5px;color:var(--mut);font-weight:600}
-.plist .lvb{margin-left:auto;font-size:10px;font-weight:800;color:#fff;background:var(--red);border-radius:10px;padding:3px 7px}
+.wh{display:flex;width:100%;align-items:center;gap:8px;border:0;background:none;padding:0;text-align:left;color:var(--g);font-size:17px;font-weight:900;font-style:italic}
+.wh .chev{margin-left:auto;width:30px;height:30px;border-radius:50%;background:#e9f4e5;display:flex;align-items:center;justify-content:center;transition:transform .3s ease;font-style:normal}
+.wh.open .chev{transform:rotate(180deg)}
+.whb{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s cubic-bezier(.2,.8,.2,1)}
+.whb.open{grid-template-rows:1fr}
+.whb>div{overflow:hidden}
+.wd{font-size:10.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#c98a00;margin:12px 0 2px}
+.wd.hoy{color:var(--g)}
+.wi{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:5px 0;border-top:1px solid #f0f4ee;font-size:12px;line-height:1.3}
+.wi .t{font-weight:800;color:var(--gd);font-variant-numeric:tabular-nums}
+.wi .n{font-weight:700} .wi .l{color:var(--mut);font-weight:600}
+.wi .lv{color:var(--red);font-weight:800}
+.wi.past{opacity:.45}
+.gomap{display:inline-flex;align-items:center;gap:5px;margin-top:12px;border:0;background:var(--g);color:#fff;font-weight:800;font-size:12.5px;border-radius:16px;padding:7px 13px}
 .hint{font-size:11.5px;color:var(--mut);text-align:center;padding:2px 8px 10px}
 .full{width:100%;display:block;border-radius:10px}
 /* hoja inferior */
@@ -170,19 +203,20 @@ footer{text-align:center;font-size:11px;color:var(--mut);padding:6px 16px 28px;l
 <p class="sb">19 al 22 de noviembre 2026 · Parque SOFO Charles Caminondo · Temuco</p></header>
 <div class="stripe"></div>
 <nav class="main"><div class="clock off" id="clock"><span class="dot"></span><span id="clk">—</span></div>
-<div class="mt"><a href="#programa" data-v="programa">Programa</a><a href="#mapa" data-v="mapa">Mapa</a><a href="#favoritos" data-v="favoritos">★ Mis favoritos<span class="cnt" id="fc" hidden>0</span></a><a href="#info" data-v="info">Info</a></div></nav>
+<div class="mt"><a href="#programa" data-v="programa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18M7.5 14h3M7.5 17.5h6"/></svg><span class="lbl">Programa</span></a><a href="#mapa" data-v="mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5V4l-6 2.5L9 4Z"/><path d="M9 4v13M15 6.5v13"/></svg><span class="lbl">Mapa</span></a><a href="#favoritos" data-v="favoritos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8L12 3Z"/></svg><span class="lbl">Favoritos<span class="cnt" id="fc" hidden>0</span></span></a><a href="#info" data-v="info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg><span class="lbl">Info</span></a></div></nav>
 <main>
 <div class="view" id="v-programa">
  <div class="card" id="ahora"><h3>Ahora en el parque <span class="lv">EN VIVO</span></h3><div id="ahL"></div><div class="sect" id="nxT">A continuación</div><div id="nxL"></div></div>
- <div class="days" id="days"></div><div id="dias"></div>
- <p class="note">Toca ★ para guardar tus actividades favoritas y recibir un aviso antes de que empiecen. Programa sujeto a cambios.</p>
+ <div id="dsent"></div><div class="days" id="days"></div><div id="dias"></div>
+ <p class="note">Toca ★ para guardar tus actividades favoritas y recibir un aviso antes de que empiecen. Las marcadas como <span class="imp" style="margin:0">Imperdible</span> son los destacados de cada día. Programa sujeto a cambios.</p>
 </div>
 <div class="view" id="v-mapa">
  
- <div class="mapw"><div class="mapbox" id="mb"><div class="mapin" id="mi"><img id="mimg" src="img/mapa.jpg" width="2600" height="2353" alt="Mapa del Parque SOFO"></div></div>
- <div class="zoom"><button id="zi" aria-label="Acercar">+</button><button id="zo" aria-label="Alejar">−</button></div></div>
- <p class="hint">Marca ★ tus actividades favoritas y sus lugares se destacarán en el mapa. Usa + / − para hacer zoom.</p>
- <div class="card"><h3>¿Dónde es cada actividad?</h3><div class="plist" id="plist"></div></div>
+ <div class="mf" id="mf"></div>
+ <div class="mapw"><div class="mapbox" id="mb"><div class="mapin" id="mi"><img id="mimg" src="img/mapa.jpg" width="2600" height="2353" alt="Mapa del Parque SOFO" draggable="false"></div></div>
+ <button class="zr" id="zr">Ver mapa completo</button></div>
+ <p class="hint">Pellizca con dos dedos para acercar, arrastra para moverte y toca dos veces para hacer zoom. Tus favoritos ★ se destacan en el mapa.</p>
+ <div class="card"><button class="wh" id="wh" aria-expanded="false">¿Dónde es cada actividad?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="whb" id="whb"><div><div id="whL"></div><button class="gomap" id="gomap"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ir al mapa</button></div></div></div>
  <div class="card"><img class="full" src="img/leyenda.jpg" loading="lazy" alt="Sitios del mapa y simbología"></div>
  <div class="card"><img class="full" src="img/expositores.jpg" loading="lazy" alt="Expositores por sitio"></div>
 </div>
@@ -208,4 +242,4 @@ footer{text-align:center;font-size:11px;color:var(--mut);padding:6px 16px 28px;l
 <footer>Organiza SOFO · Sociedad de Fomento Agrícola de Temuco A.G. · Uniendo el campo y la ciudad desde 1918 · Edición N° 94</footer>
 <div class="sheet" id="sheet"><div class="grab"></div><div id="shC"></div></div>
 <div id="toast"><div class="k" id="tK"></div><div class="n" id="tN"></div><div class="l" id="tL"></div><div class="tb"><button class="p" id="tMap">Ver en el mapa</button><button class="s" id="tX">Cerrar</button></div></div>
-<script src="app.js?v=e93cc0c8" defer></script></body></html>
+<script src="app.js?v=20261105a" defer></script></body></html>
