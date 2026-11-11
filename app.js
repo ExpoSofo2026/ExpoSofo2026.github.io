@@ -231,8 +231,8 @@ function closeSheet(){$('sheet').classList.remove('on');document.querySelectorAl
 
 function bindML(root){root.querySelectorAll('.ml').forEach(function(b){b.onclick=function(){goPin(b.dataset.pin,b.dataset.ev)}})}
 // ---------- vistas
-var V=['programa','mapa','favoritos','info'];
-function show(){var h=(location.hash||'').slice(1);if(V.indexOf(h)<0)h='programa';V.forEach(function(v){$('v-'+v).classList.toggle('on',v===h)});
+var V=['mapa','programa','favoritos','info'];
+function show(){var h=(location.hash||'').slice(1);if(V.indexOf(h)<0)h='mapa';V.forEach(function(v){$('v-'+v).classList.toggle('on',v===h)});
  document.querySelectorAll('.mt a').forEach(function(a){a.classList.toggle('on',a.dataset.v===h)});if(h!=='mapa')closeSheet()}
 window.addEventListener('hashchange',show);
 // modo demostración: tocar el reloj 5 veces (simula sábado 15:20)
