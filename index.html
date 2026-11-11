@@ -121,8 +121,8 @@ ol.evs{list-style:none;padding:4px 10px 8px}
 @keyframes hl{0%{transform:scale(.5);opacity:1}100%{transform:scale(1.5);opacity:0}}
 .pin .bd{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.35)}
 .pin .bd span{transform:rotate(45deg);color:#fff;font-weight:900;font-size:16px}
-.pin:not(.hasfav) .halo{display:none}
-.pin.hasfav .bd{background:var(--y)!important}
+body:not(.favon) .pin .halo,.pin:not(.hasfav) .halo{display:none}
+.pin .bd span::after{content:"";display:block;width:10px;height:10px;border-radius:50%;background:#fff}.favon .pin.hasfav .bd span::after{content:"★";width:auto;height:auto;background:none;border-radius:0}.favon .pin.hasfav .bd{background:var(--y)!important}
 .pin .fv{position:absolute;top:-8px;right:-8px;background:var(--y);color:#fff;border-radius:50%;width:17px;height:17px;font-size:11px;line-height:17px;border:1.5px solid #fff;display:none}
 
 .pin.livep .bd{animation:pp 1.3s infinite}
@@ -242,4 +242,4 @@ footer{text-align:center;font-size:11px;color:var(--mut);padding:6px 16px 28px;l
 <footer>Organiza SOFO · Sociedad de Fomento Agrícola de Temuco A.G. · Uniendo el campo y la ciudad desde 1918 · Edición N° 94</footer>
 <div class="sheet" id="sheet"><div class="grab"></div><div id="shC"></div></div>
 <div id="toast"><div class="k" id="tK"></div><div class="n" id="tN"></div><div class="l" id="tL"></div><div class="tb"><button class="p" id="tMap">Ver en el mapa</button><button class="s" id="tX">Cerrar</button></div></div>
-<script src="app.js?v=20261111c" defer></script></body></html>
+<script src="app.js?v=20261111d" defer></script></body></html>
