@@ -2,7 +2,7 @@
 <html lang="es" data-umami="747d9890-62f9-49ba-b2f2-a6d3b1976947"><head><meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cloud.umami.is https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://gateway.umami.is https://cloud.umami.is https://api-gateway.umami.dev https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EXPOSOFO 2026 · Programa y Mapa</title>
+<title>EXPOSOFO 2026 · Mapa y programa</title>
 <meta name="theme-color" content="#0d4f27"><meta name="description" content="Programa oficial, mapa del Parque y expositores de EXPOSOFO 2026 · 19 al 22 de noviembre · Parque SOFO, Temuco.">
 <meta property="og:type" content="website"><meta property="og:site_name" content="EXPOSOFO 2026">
 <meta property="og:title" content="EXPOSOFO 2026 · Mapa y programa del Parque"><meta property="og:description" content="Actividades de los 4 días, mapa del Parque SOFO y expositores. 19 al 22 de noviembre · Temuco.">
@@ -41,7 +41,7 @@ nav.main{position:sticky;top:0;z-index:30;background:#fff;box-shadow:0 2px 10px 
 .clock .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(126,217,87,.7);animation:pl 1.6s infinite}
 .clock.off .dot{background:#9fb5a5;animation:none}
 .clock b{font-variant-numeric:tabular-nums;font-size:15px}
-.clock .demo{background:var(--y);color:#3d2a00;font-size:10px;padding:2px 7px;border-radius:10px;letter-spacing:.5px}
+.clock{flex-direction:column;gap:1px}.clock .cl1{display:flex;align-items:center;justify-content:center;gap:8px}.clock #clk{min-width:0;text-align:center}#clk2{text-align:center;font-size:11.5px;font-weight:700;color:var(--lime)}#clk2:empty{display:none}.vivo{display:none;width:100%;border:0;background:#c62828;color:#fff;font:inherit;font-size:12.5px;align-items:center;gap:8px;padding:7px 12px;text-align:left;cursor:pointer}.vivo.on{display:flex}.vivo .vb{flex:none;display:inline-flex;align-items:center;gap:5px;background:#fff;color:#c62828;font-weight:900;font-size:10.5px;letter-spacing:.6px;padding:2px 7px;border-radius:9px}.vivo .vb i{width:7px;height:7px;border-radius:50%;background:#c62828;animation:pl 1.2s infinite}.vivo .vt{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.vivo .vm{flex:none;font-size:11px;font-weight:700;opacity:.9}.ev.flash{animation:fl 2s ease}@keyframes fl{0%,60%{background:#fff3cd}100%{background:inherit}}.clock .demo{background:var(--y);color:#3d2a00;font-size:10px;padding:2px 7px;border-radius:10px;letter-spacing:.5px}
 @keyframes pl{0%{box-shadow:0 0 0 0 rgba(126,217,87,.7)}70%{box-shadow:0 0 0 9px rgba(126,217,87,0)}100%{box-shadow:0 0 0 0 rgba(126,217,87,0)}}
 main{max-width:760px;margin:0 auto;padding:12px 12px 30px}
 .view{display:none} .view.on{display:block;animation:vin .32s cubic-bezier(.2,.8,.2,1)}
@@ -202,7 +202,7 @@ footer{text-align:center;font-size:11px;color:var(--mut);padding:6px 16px 28px;l
 <img class="es" src="img/escudo.png" width="35" height="48" alt="SOFO"></div>
 <p class="sb">19 al 22 de noviembre 2026 · Parque SOFO Charles Caminondo · Temuco</p></header>
 <div class="stripe"></div>
-<nav class="main"><div class="clock off" id="clock"><span class="dot"></span><span id="clk">—</span></div>
+<nav class="main"><div class="clock off" id="clock"><span class="cl1"><span class="dot"></span><span id="clk">—</span></span><span id="clk2"></span></div><button class="vivo" id="vivo" aria-label="Actividad imperdible en vivo"></button>
 <div class="mt"><a href="#mapa" data-v="mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5V4l-6 2.5L9 4Z"/><path d="M9 4v13M15 6.5v13"/></svg><span class="lbl">Mapa</span></a><a href="#programa" data-v="programa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18M7.5 14h3M7.5 17.5h6"/></svg><span class="lbl">Programa</span></a><a href="#favoritos" data-v="favoritos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8L12 3Z"/></svg><span class="lbl">Favoritos<span class="cnt" id="fc" hidden>0</span></span></a><a href="#info" data-v="info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg><span class="lbl">Info</span></a></div></nav>
 <main>
 <div class="view" id="v-programa">
@@ -212,7 +212,7 @@ footer{text-align:center;font-size:11px;color:var(--mut);padding:6px 16px 28px;l
 </div>
 <div class="view" id="v-mapa">
  
- <div class="srch"><input id="sq" type="search" inputmode="search" enterkeyhint="search" placeholder="Busca expositor o servicio (ej: Salfa, baño)" autocomplete="off" aria-label="Buscar expositor o servicio"><button id="sx" aria-label="Borrar búsqueda">✕</button><div id="sres" class="sres" role="listbox"></div></div><div class="mf" id="mf"></div><div class="mf msf" id="msf"></div>
+ <div class="srch"><input id="sq" type="search" inputmode="search" enterkeyhint="search" placeholder="Busca expositor o servicio (ej: baño)" autocomplete="off" aria-label="Buscar expositor o servicio"><button id="sx" aria-label="Borrar búsqueda">✕</button><div id="sres" class="sres" role="listbox"></div></div><div class="mf" id="mf"></div><div class="mf msf" id="msf"></div>
  <div class="mapw"><div class="mapbox" id="mb"><div class="mapin" id="mi"><img id="mimg" src="img/mapa.jpg" width="2600" height="2352" alt="Mapa del Parque SOFO" draggable="false"></div></div>
  <button class="zr" id="zr">Ver mapa completo</button></div>
  <p class="hint">Pellizca con dos dedos para acercar, arrastra para moverte y toca dos veces para hacer zoom. Tus favoritos ★ se destacan en el mapa.</p>
@@ -242,4 +242,4 @@ footer{text-align:center;font-size:11px;color:var(--mut);padding:6px 16px 28px;l
 <footer>Organiza SOFO · Sociedad de Fomento Agrícola de Temuco A.G. · Uniendo el campo y la ciudad desde 1918 · Edición N° 94</footer>
 <div class="sheet" id="sheet"><div class="grab"></div><div id="shC"></div></div>
 <div id="toast"><div class="k" id="tK"></div><div class="n" id="tN"></div><div class="l" id="tL"></div><div class="tb"><button class="p" id="tMap">Ver en el mapa</button><button class="s" id="tX">Cerrar</button></div></div>
-<script src="app.js?v=20261111g" defer></script></body></html>
+<script src="app.js?v=20261111h" defer></script></body></html>

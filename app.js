@@ -44,12 +44,14 @@ function tick(){
  var n=now(),hh=Math.floor(n.m/60),mm=n.m%60,today=dayOf(D.days.filter(function(d){return d.date===n.date}).map(function(d){return d.k})[0]);
  var clk=('0'+hh).slice(-2)+':'+('0'+mm).slice(-2);
  if(today){var open=EV.filter(function(e){return e.d===today.k&&e.tipo==='ap'}),a=open[0].a,c=open[1].a,abierto=n.m>=a&&n.m<c;
-  $('clk').innerHTML='<b>'+clk+'</b> · '+today.n+' · '+(abierto?'Parque abierto hasta las '+open[1].s:(n.m<a?'Abre a las '+open[0].s:'Parque cerrado'));
+  $('clk').innerHTML='<b>'+clk+'</b> · '+today.n+' · '+(abierto?'Abierto hasta las '+open[1].s:(n.m<a?'Abre a las '+open[0].s:'Parque cerrado'));
+  var di=D.days.indexOf(today),rest=D.days.length-di,ult=rest===1;
+  $('clk2').innerHTML=ult?(n.m<c?'¡Último día de EXPOSOFO 2026! Aprovecha hasta las '+open[1].s:'¡Gracias por venir a EXPOSOFO 2026!'):(di===0?'¡Comenzó EXPOSOFO 2026! Quedan '+rest+' días de feria':'Quedan '+rest+' días de feria · ¡Vive el campo chileno!');
   $('clock').classList.toggle('off',!abierto);}
  else{var f=D.days[0].date,l=D.days[3].date;
   if(n.date<f){var dd=Math.round((Date.parse(f)-Date.parse(n.date))/864e5);$('clk').innerHTML='<b>'+clk+'</b> · Faltan '+dd+' día'+(dd>1?'s':'')+' para EXPOSOFO 2026';}
   else $('clk').innerHTML='<b>'+clk+'</b> · ¡Gracias por venir a EXPOSOFO 2026!';
-  $('clock').classList.add('off');}
+  $('clk2').innerHTML='';$('clock').classList.add('off');}
  if(demo||demoURL)$('clk').innerHTML+=' <span class="demo">'+(demoURL?'MODO PRUEBA':'DEMO')+'</span>';
  document.querySelectorAll('.dt').forEach(function(t){t.classList.toggle('hoy',t.dataset.date===n.date)});
  if(lastDate!==n.date){lastDate=n.date;if(today)sel(today.k);else if(!selDay)sel('jue')}
@@ -59,6 +61,11 @@ function tick(){
   else if(s==='soon'){el.classList.add('soon');cw.innerHTML='<span class="chip">en '+mins(e.a-n.m)+'</span>'}
   else if(s==='past'&&e.date===n.date){el.classList.add('past');if(e.tipo!=='ap')cw.innerHTML='<span class="chip">Terminó</span>'}
  });
+ // En vivo: solo imperdibles (hitos y shows)
+ var imp=today?EV.filter(function(e){return e.d===today.k&&(e.tipo==='hito'||e.tipo==='show')&&st(e,n)==='live'}):[];
+ var vv=$('vivo');
+ if(imp.length){var e0=imp[0];vv.innerHTML='<span class="vb"><i></i>EN VIVO</span><span class="vt"><b>'+esc(e0.t)+'</b>'+(e0.lug?' · '+esc(e0.lug):'')+'</span><span class="vm">termina en '+mins(e0.b-n.m)+' ›</span>';vv.dataset.ev=e0.id;vv.dataset.d=e0.d;vv.classList.add('on')}
+ else{vv.classList.remove('on');vv.innerHTML=''}
  // Ahora / A continuación
  if(today){var lv=EV.filter(function(e){return e.d===today.k&&e.tipo!=='ap'&&e.tipo!=='lista'&&st(e,n)==='live'}),
   nx=EV.filter(function(e){return e.d===today.k&&e.tipo!=='ap'&&e.a>n.m}).sort(function(a,b){return a.a-b.a}).slice(0,3);
@@ -229,6 +236,8 @@ function showSheet(h){$('shC').innerHTML=h;$('sheet').classList.add('on');$('shC
  $('shC').querySelectorAll('.st').forEach(function(b){b.onclick=function(){togF(b.dataset.f);b.classList.toggle('on',isF(b.dataset.f))}})}
 function closeSheet(){$('sheet').classList.remove('on');document.querySelectorAll('.pin').forEach(function(x){x.classList.remove('sel')})}
 
+$('vivo').onclick=function(){var id=this.dataset.ev,d=this.dataset.d;if(!id)return;location.hash='#programa';try{umami.track('en_vivo_click',{actividad:id})}catch(x){}
+ setTimeout(function(){sel(d);setTimeout(function(){var el=$('e-'+id);if(el){var y=el.getBoundingClientRect().top+window.scrollY-navH()-70;window.scrollTo({top:y,behavior:'smooth'});el.classList.add('flash');setTimeout(function(){el.classList.remove('flash')},2200)}},120)},60)};
 function bindML(root){root.querySelectorAll('.ml').forEach(function(b){b.onclick=function(){goPin(b.dataset.pin,b.dataset.ev)}})}
 // ---------- vistas
 var V=['mapa','programa','favoritos','info'];
