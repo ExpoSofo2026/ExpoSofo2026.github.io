@@ -66,6 +66,7 @@ function tick(){
  var vv=$('vivo');
  if(imp.length){var e0=imp[0];vv.innerHTML='<span class="vb"><i></i>EN VIVO</span><span class="vt"><b>'+esc(e0.t)+'</b>'+(e0.lug?' · '+esc(e0.lug):'')+'</span><span class="vm">termina en '+mins(e0.b-n.m)+' ›</span>';vv.dataset.ev=e0.id;vv.dataset.d=e0.d;vv.classList.add('on')}
  else{vv.classList.remove('on');vv.innerHTML=''}
+ document.querySelector('.mt a[data-v="programa"]').classList.toggle('haslive',!!imp.length);
  // Ahora / A continuación
  if(today){var lv=EV.filter(function(e){return e.d===today.k&&e.tipo!=='ap'&&e.tipo!=='lista'&&st(e,n)==='live'}),
   nx=EV.filter(function(e){return e.d===today.k&&e.tipo!=='ap'&&e.a>n.m}).sort(function(a,b){return a.a-b.a}).slice(0,3);
