@@ -134,7 +134,7 @@ Object.keys(PINS).forEach(function(k){var p=PINS[k],b=document.createElement('bu
 D.serv.forEach(function(v){var b=document.createElement('div');b.className='sv';b.style.left=v.x+'%';b.style.top=v.y+'%';if(v.al)b.className+=' al'+v.al;if(v.p)b.className+=' pri';if(v.sm)b.className+=' sm';b.dataset.c=v.c;b.innerHTML=v.i+'<span class="lb2">'+esc(v.n)+'</span>';mi.appendChild(b)});
 // --- filtros (opcionales, combinables)
 var F={fav:1,act:0,serv:0};
-$('mf').innerHTML='<button data-f="fav">★ Favoritos</button><button data-f="act">Actividades</button><button data-f="serv">Servicios</button><button data-f="clr">Limpiar</button>';
+$('mf').innerHTML='<button data-f="fav">★ Favoritos</button><button data-f="act">Actividades</button><button data-f="serv">Servicios</button><button data-f="clr" class="clr" aria-label="Limpiar filtros" title="Limpiar filtros"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4.5A1.5 1.5 0 0 1 9.5 3h5A1.5 1.5 0 0 1 16 4.5V6M18.5 6l-.8 13.2A2 2 0 0 1 15.7 21H8.3a2 2 0 0 1-2-1.8L5.5 6M10 11v6M14 11v6"/></svg></button>';
 $('mf').querySelectorAll('button').forEach(function(b){b.onclick=function(){var f=b.dataset.f;if(f==='clr'){F={fav:1,act:0,serv:0};SC='all'}else F[f]=F[f]?0:1;applyFilter()}});
 var SC='all';$('msf').innerHTML='<button data-c="all">Todos</button><button data-c="ban">Baños</button><button data-c="com">Comida</button><button data-c="bas">Básicos</button><button data-c="gen">Generales</button>';
 $('msf').querySelectorAll('button').forEach(function(b){b.onclick=function(){SC=b.dataset.c;F.serv=1;applyFilter()}});
